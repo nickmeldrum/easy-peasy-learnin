@@ -1,9 +1,11 @@
 import React, { useCallback } from 'react';
+import { useParams } from 'react-router-dom';
 import { useStoreState, useStoreActions } from "easy-peasy";
 
 export default function Product({ id }) {
+  const { productId } = useParams();
   const product = useStoreState(
-    state => state.products.items.find(product => product.id === id)
+    state => state.products.items.find(product => product.id === productId)
   );
 
   const addProductToBasket = useStoreActions(
@@ -16,9 +18,8 @@ export default function Product({ id }) {
 
   return (
     <div>
-      <h1>product id: {id}</h1>
       <h2>Product: {product && product.name}</h2>
-      <div>cost: {product && product.price}</div>
+      <div>cost: £{product && product.price}</div>
       <button onClick={onAddToBasketClick}>Add to basket</button>
     </div>
   );

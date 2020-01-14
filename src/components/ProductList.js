@@ -10,7 +10,7 @@ export default function ProductList() {
     {
       products.map(p => (
         <li key={p.id}>
-          <Link to={'/products/' + p.id}>{p.name}</Link> at {p.price}</li>
+          <Link to={'/products/' + p.id}>{p.name}</Link> at £{p.price}</li>
       ))
     }
     </ul>
