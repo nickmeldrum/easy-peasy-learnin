@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import './App.css';
 import ProductList from './ProductList';
-import Product from './Product';
+import ProductContainer from './ProductContainer';
 import Basket from './Basket';
 import BasketCount from './BasketCount';
 
@@ -17,7 +17,7 @@ function App() {
 
       <Switch>
         <Route path={'/products/:productId'}>
-          <Product />
+          <ProductContainer />
         </Route>
         <Route path={'/'}>
           <h2>Products:</h2>
