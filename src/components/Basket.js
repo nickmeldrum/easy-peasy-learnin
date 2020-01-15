@@ -2,14 +2,7 @@ import React from 'react';
 import { useStoreState, useStoreActions } from "easy-peasy";
 
 export default function Basket() {
-  const basketProducts = useStoreState(state =>
-    Object.keys(state.basket.items).map(productId => {
-      return {
-        ...state.basket.items[productId],
-        product: state.products.items.find(product => product.id === productId)
-      };
-    })
-  );
+  const basketProducts = useStoreState(state => state.basket.itemsWithProductInfo);
 
   const removeProductFromBasket = useStoreActions(
     actions => actions.basket.removeProduct,

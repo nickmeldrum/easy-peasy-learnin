@@ -2,11 +2,9 @@ import React, { useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { useStoreState, useStoreActions } from "easy-peasy";
 
-export default function Product({ id }) {
+export default function Product() {
   const { productId } = useParams();
-  const product = useStoreState(
-    state => state.products.items.find(product => product.id === productId)
-  );
+  const product = useStoreState(state => state.products.getById(productId));
 
   const addProductToBasket = useStoreActions(
     actions => actions.basket.addProduct
