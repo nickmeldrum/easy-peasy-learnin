@@ -6,9 +6,16 @@ const productsModel = {
   items: [
     { id: '1', name: 'Broccoli', price: 2.50 },
     { id: '2', name: 'Carrots', price: 4 },
+    { id: '232424', name: 'Toilet roll', price: 2.42 },
   ],
   getById: computed(state =>
     id => state.items.find(product => product.id === id)
+  ),
+  currentProduct: computed([
+    state => state,
+    (state, storeState) => storeState.router.location.pathname,
+    ],
+    (productModel, pathname) => pathname.startsWith('/products/') ? pathname.substring(10) : null,
   ),
 };
 
