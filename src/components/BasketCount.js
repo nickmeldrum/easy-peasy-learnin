@@ -7,7 +7,7 @@ export default function BasketCount() {
   return (
     <>
       <div>count: {basketCount}</div>
-      <div>currentProduct: {currentProduct}</div>
+      <div>currentProduct: {currentProduct ? currentProduct.name : 'none'}</div>
     </>
   );
 };

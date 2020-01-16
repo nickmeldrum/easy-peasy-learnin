@@ -15,7 +15,7 @@ const productsModel = {
     state => state,
     (state, storeState) => storeState.router.location.pathname,
     ],
-    (productModel, pathname) => pathname.startsWith('/products/') ? pathname.substring(10) : null,
+    (productModel, pathname) => pathname.startsWith('/products/') ? productModel.items.find(product => product.id === pathname.substring(10)) : null,
   ),
 };
 
