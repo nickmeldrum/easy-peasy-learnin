@@ -1,4 +1,5 @@
-import { action, thunk, computed } from 'easy-peasy';
+import { action, thunk, computed, reducer } from 'easy-peasy';
+import { routerReducer } from './router';
 import { addProductToBasket } from './basket-service';
 
 const productsModel = {
@@ -47,6 +48,7 @@ const basketModel = {
 };
 
 const storeModel = {
+  router: reducer(routerReducer),
   products: productsModel,
   basket: basketModel
 }
